@@ -1,4 +1,5 @@
-const apiKey = "3ee0f69114f9c7";  //your own api key
+import apiKey from "./config.js";  //const apiKey = "Your API KEY";
+                                    //export default apiKey;
 const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
 
 const searchBox = document.querySelector(".search input");
@@ -18,6 +19,7 @@ async function checkWeather(city){
         document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + "°c";
         document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
         document.querySelector(".wind").innerHTML = data.wind.speed + " km/h";
+        document.querySelector(".visibility").innerHTML = data.visibility + " m";
 
         if(data.weather[0].main == "Clouds"){
             weatherIcon.src = "images/clouds.png";
